@@ -26,16 +26,36 @@ class ConsumerQueueService {
   static async consumerToQueueNormal(queueName) {
     try {
       const { channel, connection } = await connectToRabbitMQ();
-      const timeExpired = 5000;
-      setTimeout(() => {
-        channel.consume(notificationQueue, (msg) => {
-          console.log(
-            `Send notificationQueue successfully processed: `,
-            msg.content.toString()
-          );
+
+      // 1. TTL
+      // const timeExpired = 5000;
+      // setTimeout(() => {
+      //   channel.consume(notificationQueue, (msg) => {
+      //     console.log(
+      //       `Send notificationQueue successfully processed: `,
+      //       msg.content.toString()
+      //     );
+      //     channel.ack(msg);
+      //   });
+      // }, timeExpired);
+
+      // 2. LOGIC
+
+      channel.consume(notificationQueue, (msg) => {
+        try {
+          const numberTest = Math.random();
+          console.log(numberTest);
+
+          if (numberTest < 0.8) {
+            throw new Error('Send notification failed');
+          }
+
+          console.log('Send notification success');
           channel.ack(msg);
-        });
-      }, timeExpired);
+        } catch (error) {
+          channel.nack(msg, false, false);
+        }
+      });
     } catch (error) {
       console.error(error);
     }
