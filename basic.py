@@ -1,5 +1,12 @@
-import math
+name = "Nhat"
+age = 22
+
+fruits = ["apple", "lemon", "peach"]
 
 
-def compute_rectangle_area(height, width):
-    return height*width
+def print_branch():
+    branch = "LightCodeSE"
+    print(branch)
+
+
+print_branch()
