@@ -1,12 +1,4 @@
-name = "Nhat"
-age = 22
+fruits = ["banana", "lemon", "apple"]
 
-fruits = ["apple", "lemon", "peach"]
-
-
-def print_branch():
-    branch = "LightCodeSE"
-    print(branch)
-
-
-print_branch()
+for fruit in fruits:
+    print(fruit)
