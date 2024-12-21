@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: springbootmaster
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/shopdev_java
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+server:
+  port: 8090
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics, env
+        exclude: loggers, httptrace
+  endpoint:
+    health:
+      show-details: when_authorized
+      roles: ADMIN
+info:
+  app:
+    name: Beginner Java Backend
+    version: 0.0.1
+
