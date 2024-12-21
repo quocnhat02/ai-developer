@@ -1,7 +1,8 @@
-package com.beginner.springbootmaster.service.book.impl;
+package com.beginner.springbootmaster.service.impl;
 
 import com.beginner.springbootmaster.entity.book.Book;
-import com.beginner.springbootmaster.repository.book.BookRepository;
+import com.beginner.springbootmaster.repository.BookRepository;
+import com.beginner.springbootmaster.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> fetchAllBooks() {
         return bookRepository.findAll();
+    }
+
+    @Override
+    public Book addBook(Book book) {
+        return bookRepository.save(book);
     }
 }

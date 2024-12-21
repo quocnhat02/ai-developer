@@ -1,4 +1,4 @@
-package com.beginner.springbootmaster.repository.book;
+package com.beginner.springbootmaster.repository;
 
 import com.beginner.springbootmaster.entity.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
