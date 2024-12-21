@@ -3,7 +3,7 @@ spring:
     name: springbootmaster
 
   datasource:
-    url: jdbc:mysql://localhost:3306/master_java
+    url: jdbc:mysql://localhost:3306/dev_java
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
