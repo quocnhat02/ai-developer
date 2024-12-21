@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: springbootmaster
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/master_java
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    jpa:
+      hibernate:
+        ddl-auto: update # Ho?c 'create', 'create-drop', tùy vào nhu c?u
+      show-sql: true # Hi?n th? câu SQL trên console
+      properties:
+        hibernate:
+          format_sql: true # Format SQL cho d? ??c
