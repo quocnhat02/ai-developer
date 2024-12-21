@@ -5,20 +5,15 @@ package com.beginner.springbootmaster.design.creational;
 
 // Ex: Connection Pool, Logger, Cache, Configuration Manager
 public class Singleton {
-//    Double-Checked Locking
-    private static volatile Singleton instance;
 
     private Singleton() {}
 
+    private static class SingletonHolder {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
     public static Singleton getInstance() {
-        if (instance == null) {
-            synchronized (Singleton.class) {
-                if (instance == null) {
-                    instance = new Singleton();
-                }
-            }
-        }
-        return instance;
+        return SingletonHolder.INSTANCE;
     }
 
 }
