@@ -41,13 +41,13 @@ class TriangleFactory extends ShapeFactory {
 }
 
 public class Factory {
-    public static void main(String[] args) {
-        ShapeFactory factory = new RectangleFactory();
-        Shape shape = factory.createShape();
-        shape.draw();
-
-        factory = new TriangleFactory();
-        shape = factory.createShape();
-        shape.draw();
-    }
+//    public static void main(String[] args) {
+//        ShapeFactory factory = new RectangleFactory();
+//        Shape shape = factory.createShape();
+//        shape.draw();
+//
+//        factory = new TriangleFactory();
+//        shape = factory.createShape();
+//        shape.draw();
+//    }
 }
