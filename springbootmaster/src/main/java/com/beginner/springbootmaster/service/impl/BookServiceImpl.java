@@ -16,17 +16,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public synchronized List<Book> fetchAllBooks() {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " is fetching all books");
-        List<Book> books = null;
-        try {
-            // Logic
-            books = bookRepository.findAll();
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " is finished fetching all books");
-        return books;
+        return bookRepository.findAll();
     }
 
     @Override
