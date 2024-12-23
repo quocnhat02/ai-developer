@@ -1,5 +1,6 @@
 package com.beginner.springbootmaster.controller;
 
+import com.beginner.springbootmaster.base.request.NewBookRequest;
 import com.beginner.springbootmaster.entity.book.Book;
 import com.beginner.springbootmaster.service.BookService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,8 +34,8 @@ public class BookController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Book> addBook(@RequestBody Book book) {
-        Book savedBook = bookService.addBook(book);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedBook); // Trả về ResponseEntity với status CREATED
+    public void addBook(@RequestBody NewBookRequest book) {
+        Book newBook = new Book(null, book.title(), book.author());
+        bookService.addBook(newBook);
     }
 }
