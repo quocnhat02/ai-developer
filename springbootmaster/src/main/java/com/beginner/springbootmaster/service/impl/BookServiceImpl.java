@@ -23,4 +23,5 @@ public class BookServiceImpl implements BookService {
     public Book addBook(Book book) {
         return bookRepository.save(book);
     }
+
 }
