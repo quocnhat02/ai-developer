@@ -5,19 +5,23 @@ import com.beginner.springbootmaster.entity.book.Book;
 import com.beginner.springbootmaster.service.BookService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.validation.Valid;
+import jakarta.validation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private Validator validator;
 
     @GetMapping("")
     public ResponseEntity<List<Book>> getAllBooks() {
@@ -36,6 +40,11 @@ public class BookController {
 
     @PostMapping("")
     public void addBook(@Valid @RequestBody NewBookRequest book) {
+//        Set<ConstraintViolation<NewBookRequest>> validate = validator.validate(book);
+//        validate.forEach(error -> System.out.println(error.getMessage()));
+//        if (validate.isEmpty()) {
+//            throw new ConstraintViolationException(validate);
+//        }
         Book newBook = new Book(null, book.title(), book.author());
         bookService.addBook(newBook);
     }
