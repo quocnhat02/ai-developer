@@ -16,6 +16,9 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
 server:
   port: 8090
+  error:
+    include-message: always
+    include-binding-errors: always
 
 management:
   endpoints:
