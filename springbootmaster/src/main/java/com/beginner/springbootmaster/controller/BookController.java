@@ -5,6 +5,7 @@ import com.beginner.springbootmaster.entity.book.Book;
 import com.beginner.springbootmaster.service.BookService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class BookController {
     }
 
     @PostMapping("")
-    public void addBook(@RequestBody NewBookRequest book) {
+    public void addBook(@Valid @RequestBody NewBookRequest book) {
         Book newBook = new Book(null, book.title(), book.author());
         bookService.addBook(newBook);
     }
