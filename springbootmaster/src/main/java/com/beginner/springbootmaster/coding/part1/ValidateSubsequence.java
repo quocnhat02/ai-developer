@@ -4,6 +4,9 @@ public class ValidateSubsequence {
     public static boolean isSubsequence(int[] arr, int[] subsequence) {
         int indexSubsequence = 0;
         for (int i = 0; i < arr.length; i++) {
+            if (indexSubsequence == subsequence.length) {
+                break;
+            }
             if (arr[i] == subsequence[indexSubsequence]) {
                 indexSubsequence++;
             }
