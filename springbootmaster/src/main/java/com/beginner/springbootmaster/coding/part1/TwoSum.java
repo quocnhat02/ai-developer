@@ -2,17 +2,20 @@ package com.beginner.springbootmaster.coding.part1;
 
 
 import java.util.Arrays;
+import java.util.Hashtable;
 
 public class TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {
+        Hashtable<Integer, Integer> hashNums = new Hashtable<Integer, Integer>();
 
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
-                }
+            int complement = target - nums[i];
+            if (hashNums.get(complement) != null) {
+                int index = hashNums.get(complement);
+                return new int[]{index, i};
             }
+            hashNums.put(nums[i], i);
         }
 
         return null;
