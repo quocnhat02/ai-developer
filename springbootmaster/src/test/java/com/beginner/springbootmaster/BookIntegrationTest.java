@@ -1,6 +1,5 @@
 package com.beginner.springbootmaster;
 
-import com.beginner.springbootmaster.controller.BookController;
 import com.beginner.springbootmaster.service.BookService;
 import com.beginner.springbootmaster.entity.book.Book;
 import org.junit.jupiter.api.Test;
@@ -13,8 +12,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-
-import java.util.List;
 
 @SpringBootTest()
 public class BookIntegrationTest {
