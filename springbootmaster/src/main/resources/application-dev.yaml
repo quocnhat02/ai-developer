@@ -3,17 +3,17 @@ spring:
     name: springbootmaster
 
   datasource:
-    url: jdbc:mysql://localhost:3306/shopdev_java
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
+    url: jdbc:postgresql://my-postgres:5432/java_postgres
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+    jpa:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        ddl-auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8090
   error:
